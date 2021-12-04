@@ -10,9 +10,9 @@ class AddPerson extends StatefulWidget {
 }
 
 class _AddPersonState extends State<AddPerson> {
-  bool firstNameisValid = true;
-  bool lastNameisValid = true;
-  bool firstPhoneValid = true;
+  bool firstNameisValid = false;
+  bool lastNameisValid = false;
+  bool firstPhoneValid = false;
   final firstNameController = TextEditingController();
   final lastNameController = TextEditingController();
   final firstphoneController = TextEditingController();
@@ -107,7 +107,8 @@ class _AddPersonState extends State<AddPerson> {
               hoverColor: Color(0xff4d000),
               focusColor: Color(0xff4da6ff),
               onPressed: () {
-                provider.addContact(Contact(
+               if((firstNameController.text)!='' && (lastNameController.text)!='' && (firstphoneController.text)!='' ){
+                  provider.addContact(Contact(
                     firstName: firstNameController.text,
                     lastName: lastNameController.text,
                     phoneNumOne: firstphoneController.text,
@@ -120,6 +121,10 @@ class _AddPersonState extends State<AddPerson> {
                 secondphoneController.text = '';
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => MyApp()));
+               }
+               else  {
+                    
+               }
               },
             ))
           ],
