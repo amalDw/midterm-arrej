@@ -95,3 +95,9 @@ class _MyHomePageState extends State<MyHomePage> {
         );
   }
 }
+/**
+ * 
+ * git config --global user.email "216067@ppu.edu.ps"
+  git config --global user.name "amalDw"
+
+ */
